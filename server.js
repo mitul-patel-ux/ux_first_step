@@ -1,14 +1,14 @@
+
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 
 const app = express();
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 
-// Put your NEW MongoDB Atlas connection string here temporarily
-const MONGO_URI =process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI;
 
-app.use(express.static("public"));
+app.use(express.static(__dirname));
 app.use(express.json());
 
 // Connect to MongoDB
@@ -20,11 +20,11 @@ mongoose.connect(MONGO_URI)
         console.error("MongoDB connection error:", error.message);
     });
 
-    app.get("/", (req, res) => {
+app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
-
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
