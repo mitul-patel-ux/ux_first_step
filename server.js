@@ -3,10 +3,10 @@ const path = require("path");
 const mongoose = require("mongoose");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.port || 3000;
 
 // Put your NEW MongoDB Atlas connection string here temporarily
-const MONGO_URI =preocess.env.MONGO_URI;
+const MONGO_URI =process.env.MONGO_URI;
 
 app.use(express.static("public"));
 app.use(express.json());
