@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3000;
 
 // Put your NEW MongoDB Atlas connection string here temporarily
-const MONGO_URI ="mongodb+srv://u25cs045_db_user:8dXu0gBL6srgcZo5@cluster0.9bthn9c.mongodb.net" ;
+const MONGO_URI =preocess.env.MONGO_URI;
 
 app.use(express.static("public"));
 app.use(express.json());
